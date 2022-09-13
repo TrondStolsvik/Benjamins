@@ -75,3 +75,11 @@ p {
 .html5Icon {
   color: #e44d26;
 }
+
+.odd {
+  font-weight: normal;
+}
+
+.even {
+  font-weight: bold;
+}
