@@ -78,7 +78,63 @@
     </nav>
     <!-- MAIN Section -->
     <main class="flex-shrink-0">
-      <div class="container"></div>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col-12 col-md-5 border-end border-1 border-dark">
+            <h1>Benjamins: A Coding Project</h1>
+            <h4 class="lead">
+              While others count their blessings, you can count your benjamins.
+              This is a program that displays the numbers from one input to
+              another and displays the even numbers in <b>bold</b> characters.
+            </h4>
+            <h2 class="mt-5 border-bottom border-1 border-dark">
+              Instructions
+            </h2>
+            <p>
+              Enter a starting value and and ending value. Press the button and
+              the values will be displayed in a table on the right.
+            </p>
+          </div>
+          <div class="col-12 col-md-7">
+            <div>
+              <h5>Enter Values</h5>
+              <form class="row gy-2 gx-3">
+                <div class="col-6">
+                  <input
+                    id="startValue"
+                    type="number"
+                    class="form-control"
+                    placeholder="Start Value"
+                    value="0"
+                    aria-label="Start Value"
+                  />
+                </div>
+                <div class="col-6">
+                  <input
+                    id="endValue"
+                    type="number"
+                    class="form-control"
+                    placeholder="End Value"
+                    value="100"
+                    aria-label="End Value"
+                  />
+                </div>
+                <div
+                  class="col-12 d-flex justify-content-start justify-content-md-end"
+                >
+                  <button
+                    id="btnSubmit"
+                    type="button"
+                    class="btn btn-success btn-lg"
+                  >
+                    Count 'em!
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- FOOTER Section -->
     <footer class="footer mt-auto py-3 bg-dark sticky-footer">
