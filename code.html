@@ -89,18 +89,132 @@
           <div class="col-12 col-md-8">
             <pre class="line-numbers">
               <code class="language-javascript">
-                function HelloWorld() {
-                  alert("Hello World!");
-                }
+                //Get start and end values from the inputs
+function getValues() {
+  //Get the values from the inputs
+  let startValue = document.getElementById("startValue").value;
+  let endValue = document.getElementById("endValue").value;
+
+  //Parse values of input to integers
+  startValue = parseInt(startValue);
+  endValue = parseInt(endValue);
+
+  //Check and validate input
+  if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+    //Generate numbers
+    let numbers = generateNumbers(startValue, endValue);
+
+    //Display the results
+    displayNumbers(numbers);
+  } else {
+    alert("You must enter integers in both fields.");
+  }
+}
+
+//Generate numbers based on start and end values
+function generateNumbers(sValue, eValue) {
+  //Declare empty array for numbers
+  let numbers = [];
+  //Loop over values from start to end
+  for (let i = sValue; i <= eValue; i++) {
+    //Add the number from each iteration to the numbers array
+    numbers.push(i);
+  }
+  //Return numbers array
+  return numbers;
+}
+
+//Display numbers in the table
+function displayNumbers(numbers) {
+  //Declare variable "templateRows" and set to ""
+  let templateRows = "";
+
+  //For loop through all items of numbers array
+  for (let i = 0; i < numbers.length; i++) {
+    //Declare string "className"
+    let className = "even";
+
+    //Declare number to numbers[i]
+    let number = numbers[i];
+
+    //if else test against % 2 to be 0
+    if (number % 2 == 0) {
+      //If number % 2 = 0, set className == "even"
+      className = "even";
+    } else {
+      //else set className == "odd"
+      className = "odd";
+    }
+
+    //For each iteration of loop, concatenate "templateRows" with the markup:
+    //`&lt;tr&gt;&lt;td class="${className}"&gt;${number}&lt;/td&gt;&lt;/tr&gt;`
+    templateRows += `&lt;tr&gt;&lt;td class="${className}"&gt;${number}&lt;/td&gt;&lt;/tr&gt;`;
+  }
+
+  //Show results in "results" element using getElementById.
+  document.getElementById("results").innerHTML = templateRows;
+}
+
               </code>
             </pre>
           </div>
           <div class="col-12 col-md-4">
-            <p>The Code is structured in one function.</p>
-            <h5>HelloWorld()</h5>
+            <p>The Code is structured in three functions.</p>
+            <h5>getValues()</h5>
             <p>
-              HelloWorld() is a function that displays an alert with a message
-              of "Hello World!"
+              The function getValues() is used to declare two variables,
+              startValue and endValue and initializes them to whatever the
+              inputs from the page are.<br /><br />Next they have to be parsed
+              to integers, because we want the actual numbers, not the strings
+              from the input. Finally they are validated as integers before use
+              in an if-else-statement.<br /><br />If the checks are evaluated to
+              both be true, we can declare a new variable called numbers, and
+              call the function generateNumbers() and store it's values. Finally
+              the function displayNumbers() is called upon in order to display
+              the results on the page.<br /><br />
+              If either of the values are evaluated to be false in the integer
+              check, an alert is displayed, prompting the user to enter integers
+              in both fields.
+            </p>
+            <br />
+            <h5>generateNumbers()</h5>
+            <p>
+              The function generateNumbers() is where we, as the name implies,
+              generate the numbers, or data, for our table. It uses two
+              parameters which are passed from the getValues() function.<br /><br />An
+              empty array is declared, called numbers. Then we iterate through a
+              for-loop from sValue, and for as long as this is lower than or
+              equal to eValue. sValue and eValue are the counterparts for
+              startValue and endValue that we use in this function.<br /><br />For
+              each iteration of this loop, the number is pushed into the array
+              that was declared earlier.<br /><br />Finally, the numbers are
+              returned and can be used for the next step, which is displaying
+              the numbers.
+            </p>
+            <br />
+            <h5>displayNumbers()</h5>
+            <p>
+              The final function of this program is displayNumbers() and is what
+              injects the numbers into the page as a table. It uses a parameter,
+              numbers which is passed to it from the generateNumbers()
+              function.<br /><br />First a variable, templateRows is declared as
+              an empty string. Next a for-loop iterates from 0 and for as long
+              as the current index is less than the length of the variable
+              numbers. As long as it is, it is incremented by one.<br /><br />Inside
+              the loop, meaning for every iteration, we also declare a variable
+              className to be equal to the string "even". Also, we declare a
+              variable number to be equal to the current index of the variable
+              numbers.<br /><br />Next an if-else-statement will check if the
+              modulus of each index is equal to 0 and set the className of those
+              that evaluate to true, to "even", and those that evaluate to
+              false, to "odd", using the else-portion.<br /><br />For each
+              iteration of the loop the resulting number is concatenated to the
+              variable templateRows with it's corresponding className and
+              number.<br /><br />Finally, when the for-loop is done with it's
+              iterations, the resulting templateRows are injected into the HTML
+              using the id of the table, which is "results" in this case.<br /><br />The
+              final product is then styled with CSS to make the even numbers
+              have a font-weight of bold.
             </p>
           </div>
         </div>
